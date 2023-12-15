@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+import constants
 from management.managers import TaskManager
 
 
@@ -17,11 +18,8 @@ class Task(models.Model):
     )
     status = models.CharField(
         max_length=20,
-        choices=[
-            ("not_started", "Not Started"),
-            ("in_progress", "In Progress"),
-            ("completed", "Completed"),
-        ],
+        choices=constants.TaskStatus.CHOICES,
+        default=constants.TaskStatus.NOT_STARTED,
     )
 
     def __str__(self):
