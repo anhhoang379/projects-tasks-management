@@ -1,11 +1,5 @@
 # flake8: noqa
 from .login import LoginView
-from .projects import ProjectListCreateView
+from .projects import ProjectDetailView, ProjectListCreateView
+from .signup import SignUpView
 from .tasks import TaskDetailView, TaskListCreateView
-
-__all__ = [
-    "LoginView",
-    "ProjectListCreateView",
-    "TaskListCreateView",
-    "TaskDetailView",
-]

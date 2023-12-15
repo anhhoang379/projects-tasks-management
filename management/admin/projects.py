@@ -4,9 +4,8 @@ from management.models import Project
 
 
 @admin.register(Project)
-class AuthorAdmin(admin.ModelAdmin):
+class ProjectAdmin(admin.ModelAdmin):
     list_display = [
         "name",
         "description",
-        "managers",
     ]

@@ -4,7 +4,7 @@ from management.models import Task
 
 
 @admin.register(Task)
-class AuthorAdmin(admin.ModelAdmin):
+class TaskAdmin(admin.ModelAdmin):
     list_display = [
         "project",
         "name",

@@ -1,14 +1,20 @@
-from rest_framework import viewsets
+from rest_framework import generics, status
 from rest_framework.response import Response
 
 from management.api.serializers import SignUpSerializer
 
 
-class SignUpViewSet(viewsets.ViewSet):
+class SignUpView(generics.CreateAPIView):
     serializer_class = SignUpSerializer
 
-    def create(self, request):
-        serializer = self.serializer_class(data=request.data)
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(
+            serializer.data, status=status.HTTP_201_CREATED, headers=headers
+        )
+
+    def perform_create(self, serializer):
         serializer.save()
-        return Response({"status": "success"})

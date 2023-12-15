@@ -4,12 +4,13 @@ from management.api.views import (
     LoginView,
     ProjectDetailView,
     ProjectListCreateView,
+    SignUpView,
     TaskDetailView,
     TaskListCreateView,
 )
 
 urlpatterns = [
-    # path('users/register/', UserCreateView.as_view(), name='user-register'),
+    path("users/signup/", SignUpView.as_view(), name="user-sisnup"),
     path("users/login/", LoginView.as_view(), name="user-login"),
     path(
         "projects/",

@@ -1,10 +1,10 @@
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 from rest_framework import generics, status
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 
 from management.api.serializers import LoginSerializer
-from management.models import User
 
 
 class LoginView(generics.CreateAPIView):
